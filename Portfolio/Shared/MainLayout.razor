@@ -1,25 +1,134 @@
-﻿@inherits LayoutComponentBase
+﻿@using Placement = MudBlazor.Placement
+@using Color = MudBlazor.Color
+@inherits LayoutComponentBase
 
-<MudThemeProvider />
-<MudDialogProvider />
-<MudSnackbarProvider />
 
 <MudLayout>
-    <MudAppBar>
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="MudBlazor.Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+    <MudAppBar Elevation="1" Dense>
+        <MudSpacer/>
+        <MudTooltip Text="@DarkModeText" Placement="Placement.Bottom">
+            <MudToggleIconButton Icon="@Icons.Material.Filled.LightMode" ToggledIcon="@Icons.Material.Filled.DarkMode" ToggledChanged="@ToggleTheme" Color="Color.Primary" ToggledColor="Color.Primary"></MudToggleIconButton>
+        </MudTooltip>
     </MudAppBar>
-    <MudDrawer @bind-Open="@_drawerOpen">
+    <MudDrawer @bind-Open="@_open" Elevation="1" Variant="@DrawerVariant.Mini" >
+
+        @if (_open)
+        {
+            <MudDrawerHeader>
+                <MudStack Row>
+                    <MudIcon Icon="@Icons.Custom.Brands.GitHub" Color="Color.Primary" Size="Size.Large" />
+                    <MudText Typo="Typo.h6" Style="padding-top: 3px">@TitleText</MudText>
+                </MudStack>
+            </MudDrawerHeader>
+        }
+        else
+        {
+            <MudDrawerHeader>
+                <MudIcon Icon="@Icons.Custom.Brands.GitHub" Color="Color.Primary" Size="Size.Large" Style="position: absolute; top: 13px;left: 13px"/>
+            </MudDrawerHeader>
+        }
+
         <NavMenu/>
+        <MudSpacer/>
+        <MudStack Row>
+            <MudSpacer/>
+            <MudTooltip Text="@DrawerTooltipText" Placement="Placement.Right">
+            <MudToggleIconButton Icon="@Icons.Material.Filled.ArrowRight" ToggledIcon="@Icons.Material.Filled.ArrowLeft" ToggledColor="Color.Primary" Color="Color.Primary" Edge="Edge.Start" ToggledChanged="@ToggleDrawer"/>
+            </MudTooltip>
+        </MudStack>
     </MudDrawer>
-    <MudMainContent>
-        @Body
+    <MudMainContent Class="pt-16 px-16">
+        <MudContainer Class="mt-6">
+            @Body
+            <MudScrollToTop>
+                <MudFab Color="Color.Primary" Icon="@Icons.Filled.ArrowUpward" />
+            </MudScrollToTop>
+        </MudContainer>
     </MudMainContent>
 </MudLayout>
-@code {
-    bool _drawerOpen = true;
 
-    void DrawerToggle()
+<MudThemeProvider Theme="_theme"/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+@code{
+    private bool _open = false;
+    private string _searchTerm = "";
+    public MudTheme _theme = new();
+    public bool _isLightMode = true;
+    public string TitleText { get; set; }
+    public string DarkModeText { get; set; } = "Dark Mode";
+    public string DrawerTooltipText { get; set; } = "Expand";
+
+    protected override void OnInitialized()
     {
-        _drawerOpen = !_drawerOpen;
+        _theme = GenerateLightTheme();
     }
+
+
+    private void ToggleTheme()
+    {
+        _isLightMode = !_isLightMode;
+        if (!_isLightMode)
+        {
+            _theme = GenerateDarkTheme();
+            DarkModeText = "Light Mode";
+            StateHasChanged();
+        }
+        else
+        {
+            _theme = GenerateLightTheme();
+            DarkModeText = "Dark Mode";
+            StateHasChanged();
+        }
+    }
+
+    private MudTheme GenerateDarkTheme() => new MudTheme
+    {
+        Palette = new Palette()
+        {
+            Black = "#27282f",
+            Background = "#32343d",
+            BackgroundGrey = "#27282f",
+            Surface = "#373840",
+            TextPrimary = "#ffffffb2",
+            TextSecondary = "rgba(255,255,255, 0.50)",
+            DrawerText = "rgb(234, 234, 234)",
+            DrawerBackground = "#c3e0e5",
+            DrawerIcon = "#41729f",
+            AppbarBackground = "#c3e0e5",
+            AppbarText = "424242ff",
+            Primary = "#41729f"
+        }
+    };
+
+    private MudTheme GenerateLightTheme() => new MudTheme
+    {
+        Palette = new Palette()
+        {
+            Black = "#27282f",
+            Background = "rgb(255, 255, 255)",
+            BackgroundGrey = "rgb(234, 234, 234)",
+            Surface = "#ffffff",
+            TextPrimary = "rgb(0, 0, 0)",
+            TextSecondary = "rgba(0,0,0, 0.50)",
+            DrawerText = "#41729f",
+            DrawerBackground = "#c3e0e5",
+            DrawerIcon = "#274472",
+            AppbarBackground = "#c3e0e5",
+            AppbarText = "#274472",
+            Primary = "#274472"
+     
+   }
+    };
+
+
+    void ToggleDrawer()
+    {
+        _open = !_open;
+        TitleText = _open ? "runnerm" : "";
+        DrawerTooltipText = _open ? "Collapse" : "Expand";
+    }
+
+
 }
