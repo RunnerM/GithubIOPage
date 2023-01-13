@@ -10,13 +10,13 @@
             <MudToggleIconButton Icon="@Icons.Material.Filled.LightMode" ToggledIcon="@Icons.Material.Filled.DarkMode" ToggledChanged="@ToggleTheme" Color="Color.Primary" ToggledColor="Color.Primary"></MudToggleIconButton>
         </MudTooltip>
     </MudAppBar>
-    <MudDrawer @bind-Open="@_open" Elevation="1" Variant="@DrawerVariant.Mini" >
+    <MudDrawer @bind-Open="@_open" Elevation="1" Variant="@DrawerVariant.Mini">
 
         @if (_open)
         {
             <MudDrawerHeader>
                 <MudStack Row>
-                    <MudIcon Icon="@Icons.Custom.Brands.GitHub" Color="Color.Primary" Size="Size.Large" />
+                    <MudIcon Icon="@Icons.Custom.Brands.GitHub" Color="Color.Primary" Size="Size.Large"/>
                     <MudText Typo="Typo.h6" Style="padding-top: 3px">@TitleText</MudText>
                 </MudStack>
             </MudDrawerHeader>
@@ -33,17 +33,15 @@
         <MudStack Row>
             <MudSpacer/>
             <MudTooltip Text="@DrawerTooltipText" Placement="Placement.Right">
-            <MudToggleIconButton Icon="@Icons.Material.Filled.ArrowRight" ToggledIcon="@Icons.Material.Filled.ArrowLeft" ToggledColor="Color.Primary" Color="Color.Primary" Edge="Edge.Start" ToggledChanged="@ToggleDrawer"/>
+                <MudToggleIconButton Icon="@Icons.Material.Filled.ArrowRight" ToggledIcon="@Icons.Material.Filled.ArrowLeft" ToggledColor="Color.Primary" Color="Color.Primary" Edge="Edge.Start" ToggledChanged="@ToggleDrawer"/>
             </MudTooltip>
         </MudStack>
     </MudDrawer>
-    <MudMainContent Class="pt-16 px-16">
-        <MudContainer Class="mt-6">
-            @Body
-            <MudScrollToTop>
-                <MudFab Color="Color.Primary" Icon="@Icons.Filled.ArrowUpward" />
-            </MudScrollToTop>
-        </MudContainer>
+    <MudMainContent Class="pt-16 px-4">
+        @Body
+        <MudScrollToTop>
+            <MudFab Color="Color.Primary" Icon="@Icons.Filled.ArrowUpward"/>
+        </MudScrollToTop>
     </MudMainContent>
 </MudLayout>
 
@@ -118,8 +116,7 @@
             AppbarBackground = "#c3e0e5",
             AppbarText = "#274472",
             Primary = "#274472"
-     
-   }
+        }
     };
 
 
