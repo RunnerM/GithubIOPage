@@ -1,9 +1,35 @@
-﻿<MudNavMenu>
-    <MudNavLink Href="/" Icon="@Icons.Filled.Home" Match="NavLinkMatch.All">Home</MudNavLink>
-    <MudNavLink Href="/education" Icon="@Icons.Filled.School"  Match="NavLinkMatch.All">Education</MudNavLink>
-    <MudNavLink Href="/experience" Icon="@Icons.Filled.Work" Match="NavLinkMatch.All">Experience</MudNavLink>
-    <MudNavLink Href="/about" Icon="@Icons.Filled.Person" Match="NavLinkMatch.Prefix">About</MudNavLink>
+﻿@using Placement = MudBlazor.Placement
+
+<MudNavMenu>
+    @if (!IsOpen)
+    {
+        <MudTooltip Text="Home" Placement="Placement.Right">
+            <MudNavLink Href="/home" Icon="@Icons.Material.Filled.Home" Match="NavLinkMatch.All">Home</MudNavLink>
+        </MudTooltip>
+        <MudTooltip Text="Education" Placement="Placement.Right">
+            <MudNavLink Href="/education" Icon="@Icons.Material.Filled.School" Match="NavLinkMatch.All">Education</MudNavLink>
+        </MudTooltip>
+        <MudTooltip Text="Experience" Placement="Placement.Right">
+            <MudNavLink Href="/experience" Icon="@Icons.Material.Filled.Work" Match="NavLinkMatch.All">Experience</MudNavLink>
+        </MudTooltip>
+        <MudTooltip Text="About" Placement="Placement.Right">
+            <MudNavLink Href="/about" Icon="@Icons.Material.Filled.Person" Match="NavLinkMatch.Prefix">About</MudNavLink>
+        </MudTooltip>
+    }
+    else
+    {
+        <MudNavLink Href="/home" Icon="@Icons.Material.Filled.Home" Match="NavLinkMatch.All">Home</MudNavLink>
+        <MudNavLink Href="/education" Icon="@Icons.Material.Filled.School" Match="NavLinkMatch.All">Education</MudNavLink>
+        <MudNavLink Href="/experience" Icon="@Icons.Material.Filled.Work" Match="NavLinkMatch.All">Experience</MudNavLink>
+        <MudNavLink Href="/about" Icon="@Icons.Material.Filled.Person" Match="NavLinkMatch.Prefix">About</MudNavLink>
+    }
 </MudNavMenu>
+
+
 @code {
-    
+
+    [Parameter]
+    public bool IsOpen { get; set; }
+
 }
+
