@@ -1,0 +1,8 @@
+﻿@using Color = MudBlazor.Color
+@inject NavigationManager NavigationManager
+<MudIconButton OnClick=@(() => NavigationManager.NavigateTo("https://github.com/runnerm")) Icon="@Icons.Custom.Brands.GitHub" Color="Color.Primary" Size="@Size" Style="padding: 0; position: absolute; top: 8px;left: 10px; "/>
+
+@code {
+    [Parameter] public Size Size { get; set; }
+
+}

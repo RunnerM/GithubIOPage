@@ -1,18 +1,19 @@
 ﻿@using Placement = MudBlazor.Placement
+@using Color = MudBlazor.Color
 
 <MudNavMenu>
     @if (!IsOpen)
     {
-        <MudTooltip Text="Home" Placement="Placement.Right">
-            <MudNavLink Href="/home" Icon="@Icons.Material.Filled.Home" Match="NavLinkMatch.All">Home</MudNavLink>
+        <MudTooltip Text="Home" Placement="Placement.Right"  Color="Color.Primary" >
+            <MudNavLink Href="/home" Icon="@Icons.Material.Filled.Home"  Match="NavLinkMatch.All">Home</MudNavLink>
         </MudTooltip>
-        <MudTooltip Text="Education" Placement="Placement.Right">
+        <MudTooltip Text="Education" Placement="Placement.Right" Color="Color.Primary">
             <MudNavLink Href="/education" Icon="@Icons.Material.Filled.School" Match="NavLinkMatch.All">Education</MudNavLink>
         </MudTooltip>
-        <MudTooltip Text="Experience" Placement="Placement.Right">
+        <MudTooltip Text="Experience" Placement="Placement.Right" Color="Color.Primary">
             <MudNavLink Href="/experience" Icon="@Icons.Material.Filled.Work" Match="NavLinkMatch.All">Experience</MudNavLink>
         </MudTooltip>
-        <MudTooltip Text="About" Placement="Placement.Right">
+        <MudTooltip Text="About" Placement="Placement.Right" Color="Color.Primary">
             <MudNavLink Href="/about" Icon="@Icons.Material.Filled.Person" Match="NavLinkMatch.Prefix">About</MudNavLink>
         </MudTooltip>
     }

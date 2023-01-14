@@ -4,20 +4,20 @@
 @inject NavigationManager NavigationManager
 
 <div class="d-none d-md-block d-lg-block d-xl-block">
-<MudLayout>
-    <MudAppBar Elevation="1" Dense>
-        <MudText Typo="Typo.h6" Color="Color.Primary">@NavigationManager.Uri.Split("/").Last()[0].ToString().ToUpper()@NavigationManager.Uri.Split("/").Last().Substring(1)</MudText>
-        <MudSpacer/>
-        <MudTooltip Text="@DarkModeText" Placement="Placement.Bottom">
-            <MudToggleIconButton Icon="@Icons.Material.Filled.LightMode" ToggledIcon="@Icons.Material.Filled.DarkMode" ToggledChanged="@ToggleTheme" Color="Color.Primary" ToggledColor="Color.Primary"></MudToggleIconButton>
-        </MudTooltip>
-    </MudAppBar>
-    <MudDrawer @bind-Open="@_open" Elevation="1" Variant="@DrawerVariant.Mini">
+    <MudLayout>
+        <MudAppBar Elevation="1" Dense>
+            <MudText Typo="Typo.h6" Color="Color.Primary">@NavigationManager.Uri.Split("/").Last()[0].ToString().ToUpper()@NavigationManager.Uri.Split("/").Last().Substring(1)</MudText>
+            <MudSpacer/>
+            <MudTooltip Text="@DarkModeText" Placement="Placement.Bottom">
+                <MudToggleIconButton Icon="@Icons.Material.Filled.LightMode" ToggledIcon="@Icons.Material.Filled.DarkMode" ToggledChanged="@ToggleTheme" Color="Color.Primary" ToggledColor="Color.Primary"></MudToggleIconButton>
+            </MudTooltip>
+        </MudAppBar>
+        <MudDrawer @bind-Open="@_open" Elevation="1" Variant="@DrawerVariant.Mini">
             @if (_open)
             {
                 <MudDrawerHeader Dense>
                     <MudStack Row Style="padding-top: 0">
-                        <MudIcon Icon="@Icons.Custom.Brands.GitHub" Color="Color.Primary" Size="Size.Large" Style="position: absolute; top: 6px;left: 10px"/>
+                        <GHIcon Size="Size.Large"/>
                         <MudText Typo="Typo.h6" Color="Color.Primary" Style="position: absolute; top: 8px;left: 80px">@TitleText</MudText>
                     </MudStack>
                 </MudDrawerHeader>
@@ -25,7 +25,7 @@
             else
             {
                 <MudDrawerHeader Dense>
-                    <MudIcon Icon="@Icons.Custom.Brands.GitHub" Color="Color.Primary" Size="Size.Large" Style="position: absolute; top: 6px;left: 10px"/>
+                    <GHIcon Size="Size.Large"/>
                 </MudDrawerHeader>
             }
 
@@ -38,13 +38,13 @@
                 </MudTooltip>
             </MudStack>
         </MudDrawer>
-    <MudMainContent Class="pt-16 px-4">
-        @Body
-        <MudScrollToTop>
-            <MudFab Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowUpward"/>
-        </MudScrollToTop>
-    </MudMainContent>
-</MudLayout>
+        <MudMainContent Class="pt-16 px-4">
+            @Body
+            <MudScrollToTop>
+                <MudFab Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowUpward"/>
+            </MudScrollToTop>
+        </MudMainContent>
+    </MudLayout>
 </div>
 <div class="d-block d-sm-block d-md-none d-lg-none">
     <MudLayout>
@@ -54,11 +54,12 @@
             <MudTooltip Text="@DarkModeText" Placement="Placement.Bottom">
                 <MudToggleIconButton Icon="@Icons.Material.Filled.LightMode" ToggledIcon="@Icons.Material.Filled.DarkMode" ToggledChanged="@ToggleTheme" Color="Color.Primary" ToggledColor="Color.Primary"></MudToggleIconButton>
             </MudTooltip>
+            <GHIconGeneric Size="Size.Medium"/>
         </MudAppBar>
         <BottomNavBar/>
         <MudMainContent Class="pt-16 px-4">
             @Body
-            <MudScrollToTop>
+            <MudScrollToTop Style="padding-bottom: 45px">
                 <MudFab Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowUpward"/>
             </MudScrollToTop>
         </MudMainContent>
@@ -76,6 +77,7 @@
     public string TitleText { get; set; }
     public string DarkModeText { get; set; } = "Dark Mode";
     public string DrawerTooltipText { get; set; } = "Expand";
+    public string BackgroundColor { get; set; } = "#1b2430";
 
     protected override void OnInitialized()
     {
@@ -104,18 +106,19 @@
     {
         Palette = new Palette()
         {
+            White = "#1b2430",
             Black = "#27282f",
-            Background = "#32343d",
-            BackgroundGrey = "#27282f",
-            Surface = "#373840",
-            TextPrimary = "#ffffffb2",
-            TextSecondary = "rgba(255,255,255, 0.50)",
-            DrawerText = "rgb(234, 234, 234)",
-            DrawerBackground = "#c3e0e5",
-            DrawerIcon = "#41729f",
-            AppbarBackground = "#c3e0e5",
-            AppbarText = "424242ff",
-            Primary = "#41729f"
+            Background = "#1b2430",
+            BackgroundGrey = "rgb(234, 234, 234)",
+            Surface = "#1b2430",
+            TextPrimary = "rgb(255, 255, 255)",
+            TextSecondary = "rgba(0,0,0, 0.50)",
+            DrawerText = "#41729f",
+            DrawerBackground = "#16213e",
+            DrawerIcon = "#bbe1fa",
+            AppbarBackground = "#16213e",
+            AppbarText = "#bbe1fa",
+            Primary = "#bbe1fa"
         }
     };
 
@@ -123,6 +126,7 @@
     {
         Palette = new Palette()
         {
+            White = Colors.Shades.White,
             Black = "#27282f",
             Background = "rgb(255, 255, 255)",
             BackgroundGrey = "rgb(234, 234, 234)",

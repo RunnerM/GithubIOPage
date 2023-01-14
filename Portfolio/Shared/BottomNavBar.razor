@@ -3,19 +3,19 @@
 @inject NavigationManager NavigationManager
 <MudAppBar Bottom Dense>
     <MudSpacer/>
-    <MudTooltip Text="Home" Placement="Placement.Top">
+    <MudTooltip Text="Home" Placement="Placement.Top" Color="Color.Primary">
         <MudIconButton Icon="@Icons.Material.Filled.Home" Color="Color.Primary" OnClick=@(()=> NavigationManager.NavigateTo("/home")) />
     </MudTooltip>
     <MudSpacer/>
-    <MudTooltip Text="Education" Placement="Placement.Top">
+    <MudTooltip Text="Education" Placement="Placement.Top" Color="Color.Primary">
         <MudIconButton Icon="@Icons.Material.Filled.School" Color="Color.Primary" OnClick=@(()=> NavigationManager.NavigateTo("/education")) />
     </MudTooltip>
     <MudSpacer/>
-    <MudTooltip Text="Experience" Placement="Placement.Top">
+    <MudTooltip Text="Experience" Placement="Placement.Top" Color="Color.Primary">
         <MudIconButton Icon="@Icons.Material.Filled.Work" Color="Color.Primary" OnClick=@(()=> NavigationManager.NavigateTo("/experience")) />
     </MudTooltip>
     <MudSpacer/>
-    <MudTooltip Text="About" Placement="Placement.Top">
+    <MudTooltip Text="About" Placement="Placement.Top" Color="Color.Primary">
         <MudIconButton Icon="@Icons.Material.Filled.Person" Color="Color.Primary" OnClick=@(()=> NavigationManager.NavigateTo("/about")) />
     </MudTooltip>
     <MudSpacer/>
