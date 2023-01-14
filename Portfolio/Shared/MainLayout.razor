@@ -11,7 +11,7 @@
                 <MudText Typo="Typo.h6" Color="Color.Primary">@NavigationManager.Uri.Split("/").Last()[0].ToString().ToUpper()@NavigationManager.Uri.Split("/").Last().Substring(1)</MudText>
             }
             <MudSpacer/>
-            <MudTooltip Text="@DarkModeText" Placement="Placement.Bottom">
+            <MudTooltip Text="@DarkModeText" Placement="Placement.Bottom" Color="Color.Primary">
                 <MudToggleIconButton Icon="@Icons.Material.Filled.LightMode" ToggledIcon="@Icons.Material.Filled.DarkMode" ToggledChanged="@ToggleTheme" Color="Color.Primary" ToggledColor="Color.Primary"></MudToggleIconButton>
             </MudTooltip>
         </MudAppBar>
