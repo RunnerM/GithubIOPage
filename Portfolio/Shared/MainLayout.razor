@@ -3,6 +3,28 @@
 @inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
 
+<MudOverlay @bind-Visible="_isLayoverVisible" DarkBackground="true" ZIndex="9999" AutoClose="true">
+    <MudCard Style="padding: 10px" Elevation="4">
+        <MudStack Row>
+            <MudStack>
+                <MudSpacer/>
+                <MudIcon Size="Size.Large" Icon="@Icons.Material.Filled.Handyman"></MudIcon>
+                <MudSpacer/>
+            </MudStack>
+            <MudStack>
+                <MudText Typo="Typo.h5">This page is under development....</MudText>
+                <MudText Typo="Typo.body1">The data displayed might be inacurate or test data.</MudText>
+                <MudSpacer/>
+            </MudStack>
+        </MudStack>
+        <MudStack Row>
+            <MudSpacer/>
+            <MudButton Color="Color.Primary" Variant="Variant.Outlined" Style="display: flex; position: center" OnClick="() => _isLayoverVisible = false">Close</MudButton>
+            <MudSpacer/>
+        </MudStack>
+    </MudCard>
+</MudOverlay>
+
 <div class="d-none d-md-block d-lg-block d-xl-block">
     <MudLayout>
         <MudAppBar Elevation="1" Dense>
@@ -80,6 +102,7 @@
     private bool _open = false;
     public MudTheme _theme = new();
     public bool _isLightMode = true;
+    public bool _isLayoverVisible = true;
     public string TitleText { get; set; }
     public string DarkModeText { get; set; } = "Dark Mode";
     public string DrawerTooltipText { get; set; } = "Expand";
