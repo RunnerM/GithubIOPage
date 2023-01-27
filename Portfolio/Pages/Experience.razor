@@ -2,17 +2,27 @@
 @using Color = MudBlazor.Color
 
 <MudPaper Elevation="3">
-    <MudText Typo="Typo.h5" Color="Color.Primary">Work Experience</MudText>
+    <MudText Typo="Typo.h5" Color="Color.Primary" Style="padding: 10px; font-weight: bold">Work Experience</MudText>
 </MudPaper>
 
 <MudTimeline TimelineAlign="TimelineAlign.Default" TimelinePosition="TimelinePosition.Start">
     <MudTimelineItem Color="Color.Primary" Elevation="25">
         <MudCard Elevation="3" Class="mt-n1">
             <MudCardContent>
+                <MudText Color="Color.Primary" Typo="Typo.h6" GutterBottom="true">Unit4 A/S</MudText>
+                <MudText Color="Color.Secondary" Typo="Typo.body1">2023 Feb - Present</MudText>
+                <MudText Typo="Typo.subtitle1" Style="font-weight: bold"  Color="Color.Primary">Associate Engineer</MudText>
+                <MudText Typo="Typo.body1">_</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudTimelineItem>
+    <MudTimelineItem Color="Color.Primary" Elevation="25">
+        <MudCard Elevation="3" Class="mt-n1">
+            <MudCardContent>
                 <MudText Color="Color.Primary" Typo="Typo.h6" GutterBottom="true">Keyhole A/S</MudText>
-                <MudText Color="Color.Secondary" Typo="Typo.body1">2022 Jan - Present</MudText>
-                <MudText Typo="Typo.body2">Backend/Cloud Native Developer</MudText>
-                <MudText Typo="Typo.body2">Stuff that I did during this time.</MudText>
+                <MudText Color="Color.Secondary" Typo="Typo.body1">2022 Jan - 2023 Jan</MudText>
+                <MudText Typo="Typo.subtitle1" Style="font-weight: bold"  Color="Color.Primary">Backend/Cloud Native Developer</MudText>
+                <MudText Typo="Typo.body1">Building web services for external partners. DevOps and Cloud Native development. Building and managing Kubernetes Cluster.</MudText>
             </MudCardContent>
         </MudCard>
     </MudTimelineItem>
@@ -21,79 +31,39 @@
             <MudCardContent>
                 <MudText Color="Color.Primary" Typo="Typo.h6" GutterBottom="true">Keyhole A/S</MudText>
                 <MudText Color="Color.Secondary" Typo="Typo.body1" GutterBottom="true">2021 Aug - 2022 Jan</MudText>
-                <MudText Typo="Typo.body2">Backend/DevOps Internship</MudText>
-                <MudText Typo="Typo.body2">Stuff that I did during this time.</MudText>
+                <MudText Typo="Typo.subtitle1" Style="font-weight: bold"  Color="Color.Primary">Backend/DevOps Internship</MudText>
+                <MudText Typo="Typo.body1">Backend development with Scrum like process. Backend migration from .NET Framework to .NET Core. CI/CD development on Azure DevOps. Dockerizing .NET and React applications. Building web interfaces with Blazor. Managing resources on Azure.</MudText>
             </MudCardContent>
         </MudCard>
     </MudTimelineItem>
 </MudTimeline>
 <MudPaper Elevation="3">
-    <MudText Typo="Typo.h5" Color="Color.Primary">Projects</MudText>
+    <MudText Typo="Typo.h5" Color="Color.Primary" Style="padding: 10px; font-weight: bold">Projects</MudText>
 </MudPaper>
 <MudTimeline TimelineAlign="TimelineAlign.Default" TimelinePosition="TimelinePosition.End">
     <MudTimelineItem Color="Color.Primary" Elevation="25">
         <MudCard Elevation="3" Class="mt-n1">
             <MudCardContent>
-                <MudText Color="Color.Primary" Typo="Typo.h6" GutterBottom="true">Keyhole A/S</MudText>
-                <MudText Color="Color.Secondary" Typo="Typo.body1">2022 Jan - Present</MudText>
-                <MudText Typo="Typo.body2">Backend/Cloud Native Developer</MudText>
-                <MudText Typo="Typo.body2">Stuff that I did during this time.</MudText>
+                <MudText Color="Color.Primary" Typo="Typo.h6" GutterBottom="true">Webhook service with cert-manager for Simply.com provider</MudText>
+                <MudText Color="Color.Secondary" Typo="Typo.body1">2022 Okt - Present</MudText>
+                <MudText Typo="Typo.subtitle1" Style="font-weight: bold"  Color="Color.Primary">Cloud Native development with Golang</MudText>
+                <MudText Typo="Typo.body1">This project uses the cert-manager interface to present dns-01 challenges from a kubernetes cluster using Simply.com providers API</MudText>
             </MudCardContent>
         </MudCard>
     </MudTimelineItem>
     <MudTimelineItem Color="Color.Primary" Elevation="25" TimelineAlign="TimelineAlign.Start">
         <MudCard Elevation="3" Class="mt-n1">
             <MudCardContent>
-                <MudText Color="Color.Primary" Typo="Typo.h6" GutterBottom="true">Keyhole A/S</MudText>
-                <MudText Color="Color.Secondary" Typo="Typo.body1" GutterBottom="true">2021 Aug - 2022 Jan</MudText>
-                <MudText Typo="Typo.body2">Backend/DevOps Internship</MudText>
-                <MudText Typo="Typo.body2">Stuff that I did during this time.</MudText>
+                <MudText Color="Color.Primary" Typo="Typo.h6" GutterBottom="true">Bachelor project in robotics</MudText>
+                <MudText Color="Color.Secondary" Typo="Typo.body1" GutterBottom="true">2022 Aug - 2023 Jan</MudText>
+                <MudText Typo="Typo.subtitle1" Style="font-weight: bold"  Color="Color.Primary">Robotic Operating System and Python</MudText>
+                <MudText Typo="Typo.body1">Developed an autonomous self-driving algorithm for an irrigation machine.</MudText>
             </MudCardContent>
         </MudCard>
     </MudTimelineItem>
-    <MudTimelineItem Color="Color.Primary" Elevation="25">
-        <MudCard Elevation="3" Class="mt-n1">
-            <MudCardContent>
-                <MudText Color="Color.Primary" Typo="Typo.h6" GutterBottom="true">Keyhole A/S</MudText>
-                <MudText Color="Color.Secondary" Typo="Typo.body1">2022 Jan - Present</MudText>
-                <MudText Typo="Typo.body2">Backend/Cloud Native Developer</MudText>
-                <MudText Typo="Typo.body2">Stuff that I did during this time.</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudTimelineItem>
-    <MudTimelineItem Color="Color.Primary" Elevation="25" TimelineAlign="TimelineAlign.Start">
-        <MudCard Elevation="3" Class="mt-n1">
-            <MudCardContent>
-                <MudText Color="Color.Primary" Typo="Typo.h6" GutterBottom="true">Keyhole A/S</MudText>
-                <MudText Color="Color.Secondary" Typo="Typo.body1" GutterBottom="true">2021 Aug - 2022 Jan</MudText>
-                <MudText Typo="Typo.body2">Backend/DevOps Internship</MudText>
-                <MudText Typo="Typo.body2">Stuff that I did during this time.</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudTimelineItem>
-    <MudTimelineItem Color="Color.Primary" Elevation="25">
-            <MudCard Elevation="3" Class="mt-n1">
-                <MudCardContent>
-                    <MudText Color="Color.Primary" Typo="Typo.h6" GutterBottom="true">Keyhole A/S</MudText>
-                    <MudText Color="Color.Secondary" Typo="Typo.body1">2022 Jan - Present</MudText>
-                    <MudText Typo="Typo.body2">Backend/Cloud Native Developer</MudText>
-                    <MudText Typo="Typo.body2">Stuff that I did during this time.</MudText>
-                </MudCardContent>
-            </MudCard>
-        </MudTimelineItem>
-        <MudTimelineItem Color="Color.Primary" Elevation="25" TimelineAlign="TimelineAlign.Start">
-            <MudCard Elevation="3" Class="mt-n1">
-                <MudCardContent>
-                    <MudText Color="Color.Primary" Typo="Typo.h6" GutterBottom="true">Keyhole A/S</MudText>
-                    <MudText Color="Color.Secondary" Typo="Typo.body1" GutterBottom="true">2021 Aug - 2022 Jan</MudText>
-                    <MudText Typo="Typo.body2">Backend/DevOps Internship</MudText>
-                    <MudText Typo="Typo.body2">Stuff that I did during this time.</MudText>
-                </MudCardContent>
-            </MudCard>
-        </MudTimelineItem>
 </MudTimeline>
 
-<div style="padding-bottom: 15px"></div>
+<div style="padding-bottom: 20px"></div>
 
 @code {
 
