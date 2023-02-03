@@ -1,5 +1,48 @@
 ﻿@page "/about"
+@using Color = MudBlazor.Color
+
+<MudStack AlignItems="AlignItems.Center">
+    <MudGrid Justify="Justify.Center">
+        <MudItem>
+            <MudPaper Elevation="20" Height="220" Width="220" Style="border-radius: 105px">
+                <MudImage Style="border-radius: 95px" Src="asset/me.jpg" Width="200" Height="200" Alt="My beautiful profile picture" Elevation="35" ObjectFit="ObjectFit.Cover" Class="ma-4"/>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="12" lg="8" md="8">
+            <MudPaper Elevation="20" Style="margin-bottom: 30px;margin-top: 10px; padding: 20px">
+                    <MudText Typo="Typo.h4" Color="Color.Primary">
+                        Márton Péntek
+                    </MudText>
+                    <MudText Typo="Typo.subtitle1" Color="Color.Secondary">
+                        Backend and Cloud Native developer
+                    </MudText>
+                    <MudText Typo="Typo.body1">
+                        Short bio soon here.....
+                    </MudText>
+                </MudPaper>
+            
+                <MudPaper Elevation="20" Style="margin-bottom: 30px; padding: 20px" >
+                    <MudText Typo="Typo.h4" Color="Color.Primary">
+                        Hobbies
+                    </MudText>
+                    <MudStack Row>
+                        <MudIcon Icon="@Icons.TwoTone.DirectionsRun"></MudIcon>
+                        <MudText>Running</MudText>
+                    </MudStack>
+                    <MudStack Row>
+                        <MudIcon Icon="@Icons.Material.Filled.PedalBike"></MudIcon>
+                        <MudText>Cycling</MudText>
+                    </MudStack>
+                    <MudStack Row>
+                        <MudIcon Icon="@Icons.Material.Filled.Games"></MudIcon>
+                        <MudText>Games</MudText>
+                    </MudStack>
+                </MudPaper>
+        </MudItem>
+    </MudGrid>
+
+</MudStack>
 
 @code {
-    
+
 }
