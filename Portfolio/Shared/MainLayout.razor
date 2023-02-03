@@ -1,7 +1,10 @@
 ﻿@using Placement = MudBlazor.Placement
 @using Color = MudBlazor.Color
+@using AntDesign.JsInterop
+@using Microsoft.AspNetCore.Components.WebAssembly.Infrastructure
 @inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
 
 <MudOverlay @bind-Visible="_isLayoverVisible" DarkBackground="true" ZIndex="9999" AutoClose="true">
     <MudCard Style="padding: 10px" Elevation="4">
@@ -34,7 +37,7 @@
             }
             <MudSpacer/>
             <MudTooltip Text="@DarkModeText" Placement="Placement.Bottom" Color="Color.Primary">
-                <MudToggleIconButton Icon="@Icons.Material.Filled.LightMode" ToggledIcon="@Icons.Material.Filled.DarkMode" ToggledChanged="@ToggleTheme" Color="Color.Primary" ToggledColor="Color.Primary"></MudToggleIconButton>
+                <MudToggleIconButton Toggled="_isLightMode" Icon="@Icons.Material.Filled.LightMode" ToggledIcon="@Icons.Material.Filled.DarkMode" ToggledChanged="@ToggleTheme" Color="Color.Primary" ToggledColor="Color.Primary"></MudToggleIconButton>
             </MudTooltip>
         </MudAppBar>
         <MudDrawer @bind-Open="@_open" Elevation="1" Variant="@DrawerVariant.Mini">
@@ -108,9 +111,13 @@
     public string DrawerTooltipText { get; set; } = "Expand";
     public string BackgroundColor { get; set; } = "#1b2430";
 
-    protected override void OnInitialized()
+        private const string LIGHT = "light";
+        private const string DARK = "dark";
+
+    protected override async Task OnInitializedAsync()
     {
-        _theme = GenerateLightTheme();
+        _isLightMode = await JsRuntime.InvokeAsync<string>("theme") == DARK;
+        ToggleTheme();
     }
 
 
@@ -121,12 +128,14 @@
         {
             _theme = GenerateDarkTheme();
             DarkModeText = "Light Mode";
+            JsRuntime.InvokeVoidAsync("setSavedTheme", DARK);
             StateHasChanged();
         }
         else
         {
             _theme = GenerateLightTheme();
             DarkModeText = "Dark Mode";
+            JsRuntime.InvokeVoidAsync("setSavedTheme", LIGHT);
             StateHasChanged();
         }
     }
