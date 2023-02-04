@@ -67,11 +67,11 @@
             </MudStack>
         </MudDrawer>
         <MudMainContent Class="pt-16 px-4">
-            @Body
-            <MudScrollToTop>
-                <MudFab Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowUpward"/>
-            </MudScrollToTop>
-        </MudMainContent>
+                @Body
+                <MudScrollToTop>
+                    <MudFab Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowUpward"/>
+                </MudScrollToTop>
+            </MudMainContent>
     </MudLayout>
 </div>
 <div class="d-block d-sm-block d-md-none d-lg-none">
@@ -138,6 +138,7 @@
             JsRuntime.InvokeVoidAsync("setSavedTheme", LIGHT);
             StateHasChanged();
         }
+        JsRuntime.InvokeVoidAsync("setBodyBackgroundColor");
     }
 
     private MudTheme GenerateDarkTheme() => new MudTheme
@@ -156,7 +157,7 @@
             DrawerIcon = "#bbe1fa",
             AppbarBackground = "#16213e",
             AppbarText = "#bbe1fa",
-            Primary = "#bbe1fa"
+            Primary = "#bbe1fa",
         }
     };
 
